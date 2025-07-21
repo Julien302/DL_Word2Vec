@@ -1,0 +1,18 @@
+# Ignorer l'environnement virtuel
+.venv/
+
+# Ignorer les fichiers Python compilés
+__pycache__/
+*.pyc
+
+# Fichiers temporaires, logs, caches
+*.log
+*.cache
+
+# Dossiers et fichiers IDE (exemple VSCode)
+.vscode/
+.idea/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
