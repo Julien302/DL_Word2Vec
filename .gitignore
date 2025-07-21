@@ -1,21 +1,43 @@
-# Ignorer l'environnement virtuel
+# ▶️ Environnement virtuel Python
 .venv/
+env/
+ENV/
+*.env
 
-# Ignorer les fichiers Python compilés
+# ▶️ Fichiers Python compilés / temporaires
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+*.egg
+*.pyo
 
-# Fichiers temporaires, logs, caches
+# ▶️ Fichiers de log, cache, données temporaires
 *.log
-*.cache
+*.cache/
+.cache/
+*.tmp
 
-# Dossiers et fichiers IDE (exemple VSCode)
+# ▶️ Dossiers d’IDE
 .vscode/
 .idea/
 
-# Fichiers système
+# ▶️ Fichiers système
 .DS_Store
 Thumbs.db
 
-#Fichiers trop volumineux 
-Data/preprocessed_reviews.pkl
+# ▶️ Fichiers Jupyter Notebook (optionnel si tu n’en veux pas dans Git)
+*.ipynb
+.ipynb_checkpoints/
+
+# ▶️ Fichiers spécifiques Streamlit
+.streamlit/config.toml
+
+# ▶️ Fichiers lourds gérés par Git LFS (éviter le suivi direct)
+*.h5
+*.pkl
+*.joblib
+*.npy
+*.bin
+*.csv
+*.zip
+*.xlsx
