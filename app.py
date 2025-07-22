@@ -17,7 +17,7 @@ st.set_page_config(
 def load_word2vec_model():
     """Charge le modèle et les données nécessaires"""
     # Chargement du tokenizer
-    with open("Data/tokenizer_new.pkl", "rb") as f:
+    with open("Data/tokenizer.pkl", "rb") as f:
         tokenizer = pickle.load(f)
     
     # Paramètres du modèle
