@@ -1,7 +1,8 @@
 import streamlit as st
 import numpy as np
 import pickle
-from tensorflow.keras.models import load_model
+from tensorflow.keras import Sequential
+from tensorflow.keras.layers import Embedding, Dense, GlobalAveragePooling1D
 from sklearn.preprocessing import Normalizer
 
 # Configuration de la page
@@ -16,14 +17,21 @@ st.set_page_config(
 def load_word2vec_model():
     """Charge le modèle et les données nécessaires"""
     # Chargement du tokenizer
-    with open("Data/tokenizer.pkl", "rb") as f:
+    with open("Data/tokenizer_new.pkl", "rb") as f:
         tokenizer = pickle.load(f)
     
-    # Paramètres
+    # Paramètres du modèle
     vocab_size = 10000
+    embedding_dim = 100 
     
-    # Chargement du modèle
-    model = load_model("Model/word2vec.h5")
+    # Reconstruction du modèle
+    model = Sequential()
+    model.add(Embedding(vocab_size, embedding_dim))
+    model.add(GlobalAveragePooling1D())
+    model.add(Dense(vocab_size, activation='softmax'))
+    
+    # Chargement des poids uniquement
+    model.load_weights("Model/word2vec.h5")
     
     # Extraction des vecteurs d'embedding
     vectors = model.layers[0].get_weights()[0]
